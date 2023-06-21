@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <mat-icon>menu</mat-icon>
+    
+
+</mat-toolbar>
+<button mat-icon-button style="float: right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Contact Us</h1>
+         
+    </header>
+   
+    <mat-radio-group>
+        <mat-radio-button>Male</mat-radio-button>
+        <mat-radio-button>Female</mat-radio-button>
+    </mat-radio-group>
+    <p><mat-form-field>
+        <input matInput placeholder="Name">
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Email">
+        <mat-icon matSuffix>drafts</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="TextArea">
+        <mat-icon matSuffix>save</mat-icon>
+        
+    </mat-form-field></p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="warn" matDialogClose>Cancel</button>
+</mat-dialog-actions>
