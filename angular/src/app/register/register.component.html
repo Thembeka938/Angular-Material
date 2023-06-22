@@ -1,0 +1,123 @@
+<mat-toolbar class="toolbarCover">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="step">
+
+    
+
+    <mat-drawer-container class="example-container"><br><br>
+        <div class="demo-section">
+            
+            <button matTooltip="Messages" mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+                Notification
+            </button><br><br>
+          </div>
+          <mat-list>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon><br><br>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon><br><br>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon><br><br>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon><br><br>
+        <mat-list-item><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="help"></mat-icon><a routerLink="./display">display</a></mat-list-item><br><br>
+
+    </mat-list>
+
+
+
+  
+    </mat-drawer-container>
+  
+    <mat-stepper headerPosition="bottom" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out Personal details</ng-template>
+          <mat-form-field>
+            <input matInput placeholder=" First name" formControlName="firstCtrl" required>
+          </mat-form-field><br>
+       
+          <mat-form-field>
+            <input matInput placeholder="Last name" formControlName="firstCtrl" required>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+          </mat-form-field>
+
+          <mat-chip-listbox aria-label="Gender">
+            <mat-chip-option>Male</mat-chip-option>
+            <mat-chip-option>Female</mat-chip-option>
+            
+          </mat-chip-listbox>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" optional>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            <input matInput placeholder="Postal Code" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Province</mat-label>
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+         
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <mat-spinner></mat-spinner>         
+
+          
+          
+        </div>      
+        
+
+      </mat-step>
+    </mat-stepper>       
+    
+  </div>
+
+  <mat-slide-toggle>terms and conditions</mat-slide-toggle>
+  
+    

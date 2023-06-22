@@ -1,7 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { DialogBodyComponent } from './dialog-body/dialog-body.component';
+import { DisplayDetailsComponent } from './display-details/display-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+{
+  path:'', pathMatch: 'full', component:RegisterComponent
+
+},
+{
+  path:'register', component:RegisterComponent
+},
+{
+path:'dialogy-body',component:DialogBodyComponent
+
+},
+
+{
+  path:'display', component:DisplayDetailsComponent
+}
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
